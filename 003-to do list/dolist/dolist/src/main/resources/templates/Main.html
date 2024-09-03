@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>dolist</title>
+ <style media="screen">
+
+ #chebo{
+
+
+     }
+
+
+
+ </style>
+</head>
+<body>
+        <form action="/Main" method="post">
+            <select name="choose">
+              <option value="id">id</option>
+              <option value="description">description</option>
+            </select>
+
+            <input type="text" name="data"><br><br>
+
+            From: <input type="date" name="sdate"> To: <input type="date" name="edate">
+            <br><br>
+            <input type="radio" name="order" value="A" checked="checked">Ascending
+            <input type="radio" name="order" value="D">Descending
+            <br><br>
+            <input type="submit" name="type" value="Show All">
+            <input type="submit" name="type" value="Search">
+            <input type="submit" name="type" value="Add">
+            <input type="submit" name="type" value="Delete">
+        <!----------------------------------------->
+        <h5 th:text="${note}"></h5>
+           <input type="checkbox" name="box" value="" checked="checked" hidden>
+
+        <table border="1"style="width:500px">
+          <tr>
+            <th>ID</th>
+            <th>TASK</th>
+            <th>DATE</th>
+            <th>status</th>
+          </tr>
+           <tr th:each="temp: ${tasks}">
+                <td th:text="${temp.id}"></td>
+                <td th:text="${temp.description}"></td>
+                <td th:text="${temp.date}"></td>
+                   <td>
+                     <label id="chebo">
+                      <input type="checkbox" name="box" th:value="${temp.id}" th:checked="${temp.status}">
+                    </label>
+                   </td>
+
+           </tr>
+        </table>
+           <input type="submit" name="type" value="Update Status">
+
+        </form><br>
+
+
+
+
+
+</body>
+</html>
