@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome !</title>
+
+</head>
+<body>
+
+  <h1 th:text="'weclome, '+${name}+'!'"></h1>
+  <h2 th:text="'AMOUNT : '+${amount}"></h2>
+ <h2 th:text="${mymessage}"></h2>
+
+  <h2>money transfer</h2>
+  <form action="inside" method="post">
+    USER : <input type="text" name="name"><br>
+    AMOUNT : <input type="text" name="amount"><br>
+    <button type="submit">SUBMIT</button>
+  </form>
+  
+  <form action="upload" method="post" enctype="multipart/form-data">
+    <input type="file" id="myFile" name="filename"><br><br>
+    <input type="submit">
+  </form>
+  <br><br>
+  <a href="/inside?log=logout">LOGOUT</a>
+
+</body>
+</html>
